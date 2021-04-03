@@ -14,7 +14,9 @@
     "react": "link:../node_modules/react",
     "react-bigger-calendar": "link:..",
     "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "link:../node_modules/react-scripts"
+    "react-scripts": "link:../node_modules/react-scripts",
+    "react-redux": "link:../node_modules/react-redux",
+    "redux": "link:../node_modules/redux"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

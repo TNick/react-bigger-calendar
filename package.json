@@ -23,14 +23,28 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
+  "dependencies": {
+    "@date-io/date-fns": "1.3.x"
+  },
   "peerDependencies": {
+    "@date-io/core": "1.x",
     "@material-ui/core": "^4.11.3",
-    "react": "^16.0.0"
+    "@react-aria/button": "^3.3.1",
+    "date-fns": "2.11.x",
+    "react-redux": "^7.2.3",
+    "react": "^16.0.0",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
+    "@date-io/core": "1.x",
+    "@date-io/date-fns": "1.3.x",
     "@material-ui/core": "^4.11.3",
+    "@react-aria/button": "^3.3.1",
+    "@testing-library/react": "^11.2.6",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
+    "date-fns": "2.11.x",
+    "enzyme": "^3.11.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
@@ -41,13 +55,17 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
+    "eventemitter3": "^4.0.7",
     "gh-pages": "^2.2.0",
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-redux": "^7.2.3",
+    "react-scripts": "^3.4.1",
+    "react-test-renderer": "^17.0.2",
+    "redux": "^4.0.5"
   },
   "files": [
     "dist"

@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect, useCallback } from 'react'
+
 /**
  * We host here general purpose code that doesn't find
  * its place anywhere else.
@@ -18,3 +20,27 @@ export const waitFor = (condition) =>
       ? resolve()
       : later().then(() => waitFor(condition).then(() => resolve()))
   )
+
+// thanks Kent C Dodds for the following helpers
+
+export function useSafeSetState(initialState) {
+  const [state, setState] = useState(initialState)
+
+  const mountedRef = useRef(false)
+  useEffect(() => {
+    mountedRef.current = true
+    return () => {
+      mountedRef.current = false
+    }
+  }, [])
+  const safeSetState = useCallback(
+    (args) => {
+      if (mountedRef.current) {
+        return setState(args)
+      }
+    },
+    [mountedRef, setState]
+  )
+
+  return [state, safeSetState]
+}

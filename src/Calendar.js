@@ -15,10 +15,10 @@ import CalendarView from './CalendarView'
  * and view components. You can use these components directly in
  * your code if you need more control.
  */
-const Calendar = ({ Toolbar, dataProvider }) => {
+const Calendar = ({ Toolbar, CustomViews, dataProvider, i18nProvider }) => {
   return (
-    <CalendarContext dataProvider={dataProvider}>
-      <CalendarView Toolbar={Toolbar} />
+    <CalendarContext dataProvider={dataProvider} i18nProvider={i18nProvider}>
+      <CalendarView Toolbar={Toolbar} CustomViews={CustomViews} />
     </CalendarContext>
   )
 }
@@ -26,10 +26,13 @@ const Calendar = ({ Toolbar, dataProvider }) => {
 Calendar.propTypes = {
   /**
    * The object used to retrieve events.
-   *
-   *
    */
   dataProvider: PropTypes.object.isRequired,
+
+  /**
+   * The object providing translations.
+   */
+  i18nProvider: PropTypes.object.isRequired,
 
   /**
    * The toolbar to use at the top of the component.

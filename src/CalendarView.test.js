@@ -1,6 +1,6 @@
 import CalendarView from './CalendarView'
 
-describe('Calendar', () => {
+describe('CalendarView', () => {
   it('is truthy', () => {
     expect(CalendarView).toBeTruthy()
   })

@@ -1,6 +1,6 @@
 import CalendarContext from './CalendarContext'
 
-describe('Calendar', () => {
+describe('CalendarContext', () => {
   it('is truthy', () => {
     expect(CalendarContext).toBeTruthy()
   })
