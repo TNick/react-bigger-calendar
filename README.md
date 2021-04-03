@@ -4,6 +4,12 @@
 
 [![NPM](https://img.shields.io/npm/v/react-bigger-calendar.svg)](https://www.npmjs.com/package/react-bigger-calendar) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+[Demo](https://tnick.github.io/react-bigger-calendar/).
+
+Inspired by [react-admin](https://github.com/marmelab/react-admin),
+[jquense/react-big-calendar](https://github.com/jquense/react-big-calendar) and
+[Full Calendar](https://fullcalendar.io/).
+
 
 ## Install
 
@@ -30,4 +36,4 @@ class Example extends Component {
 
 ## License
 
-BSD-2-Clause © [TNick](https://github.com/TNick)
+BSD-2-Clause © [Nicu Tofan](https://github.com/TNick)

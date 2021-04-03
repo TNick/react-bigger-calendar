@@ -1,10 +1,13 @@
 import React from 'react'
 
-import { ExampleComponent } from 'react-bigger-calendar'
-import 'react-bigger-calendar/dist/index.css'
+import Calendar from 'react-bigger-calendar'
+
+const dataProvider = {
+
+};
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <Calendar dataProvider={dataProvider}/>
 }
 
 export default App

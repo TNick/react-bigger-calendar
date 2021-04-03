@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './styles.module.css'
+import Calendar from './Calendar'
+export { default as CalendarContext } from './CalendarContext'
+export { default as CalendarToolbar } from './CalendarToolbar'
+export { default as CalendarView } from './CalendarView'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export default Calendar
