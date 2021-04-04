@@ -15,9 +15,25 @@ import CalendarView from './CalendarView'
  * and view components. You can use these components directly in
  * your code if you need more control.
  */
-const Calendar = ({ Toolbar, CustomViews, dataProvider, i18nProvider }) => {
+const Calendar = ({
+  CustomViews,
+  dataProvider,
+  i18nProvider,
+  initialCurrentDate,
+  initialStartDate,
+  initialViewMode,
+  Toolbar,
+  theme
+}) => {
   return (
-    <CalendarContext dataProvider={dataProvider} i18nProvider={i18nProvider}>
+    <CalendarContext
+      dataProvider={dataProvider}
+      i18nProvider={i18nProvider}
+      initialCurrentDate={initialCurrentDate}
+      initialStartDate={initialStartDate}
+      initialViewMode={initialViewMode}
+      theme={theme}
+    >
       <CalendarView Toolbar={Toolbar} CustomViews={CustomViews} />
     </CalendarContext>
   )

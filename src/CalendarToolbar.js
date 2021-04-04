@@ -37,8 +37,18 @@ const ViewModeButton = ({
  */
 const CalendarToolbar = ({ CustomViews }) => {
   const translate = useTranslate()
-  const { viewMode, setViewMode } = useViewMode()
-  const onClick = useCallback(
+
+  // Get the view controller properties.
+  const {
+    viewMode,
+    setViewMode,
+    navigateToPrevious,
+    navigateToToday,
+    navigateToNext
+  } = useViewMode()
+
+  // Handler for the buttons that change the view mode.
+  const onViewModeClick = useCallback(
     (event) => {
       setViewMode(event.currentTarget.dataset.payload)
     },
@@ -47,18 +57,32 @@ const CalendarToolbar = ({ CustomViews }) => {
 
   // Create a list of buttons for each view mode.
   const viewModeButtons = useMemo(() => {
+    // We generate a dictionary at first to allow us to check if a certain
+    // standard view has been set, then we convert it into a list
+    // TODO: we should also allow for individual standard buttons to be hidden.
     const result = {}
+
+    // Properties for all view mode buttons.
     const commonProps = {
       viewMode,
-      onClick,
+      onClick: onViewModeClick,
       translate
     }
+
+    // First create buttons for custom views.
     if (CustomViews) {
       Object.keys(CustomViews).forEach((key) => {
         result[key] = (
           <ViewModeButton key={key} myViewMode={key} {...commonProps} />
         )
       })
+    }
+
+    // Then create standard buttons if not already defined.
+    if (!Object.prototype.hasOwnProperty.call(result, 'month')) {
+      result.month = (
+        <ViewModeButton key='month' myViewMode='month' {...commonProps} />
+      )
     }
     if (!Object.prototype.hasOwnProperty.call(result, 'week')) {
       result.week = (
@@ -80,6 +104,8 @@ const CalendarToolbar = ({ CustomViews }) => {
         <ViewModeButton key='agenda' myViewMode='agenda' {...commonProps} />
       )
     }
+
+    // Discard the dictionary and return a list.
     return Object.keys(result).map((key) => result[key])
   }, [CustomViews, viewMode, setViewMode])
 
@@ -87,9 +113,15 @@ const CalendarToolbar = ({ CustomViews }) => {
     <Toolbar>
       <Box display='flex' flexGrow={1}>
         <ButtonGroup size='small' aria-label='navigation buttons'>
-          <Button color='inherit'>{translate(`rbc.tb.prev`)}</Button>
-          <Button color='inherit'>{translate(`rbc.tb.today`)}</Button>
-          <Button color='inherit'>{translate(`rbc.tb.next`)}</Button>
+          <Button onClick={navigateToPrevious} color='inherit'>
+            {translate(`rbc.tb.prev`)}
+          </Button>
+          <Button onClick={navigateToToday} color='inherit'>
+            {translate(`rbc.tb.today`)}
+          </Button>
+          <Button onClick={navigateToNext} color='inherit'>
+            {translate(`rbc.tb.next`)}
+          </Button>
         </ButtonGroup>
       </Box>
       <Box display='flex' flexGrow={1}>

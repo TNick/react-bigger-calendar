@@ -1,6 +1,6 @@
 export { default as DefaultAgenda } from './DefaultAgenda'
 export { default as DefaultDay } from './DefaultDay'
-export { default as DefaultMonth } from './DefaultMonth'
+export * from './month'
 export { default as DefaultWeek } from './DefaultWeek'
 export { default as DefaultWorkWeek } from './DefaultWorkWeek'
 export { default as getView } from './getView'
