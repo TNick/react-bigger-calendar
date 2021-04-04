@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@material-ui/core": "link:../node_modules/@material-ui/core",
+    "@material-ui/icons": "link:../node_modules/@material-ui/icons",
     "react": "link:../node_modules/react",
     "react-bigger-calendar": "link:..",
     "react-dom": "link:../node_modules/react-dom",
