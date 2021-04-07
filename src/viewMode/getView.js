@@ -3,7 +3,7 @@ import ViewAgenda from './DefaultAgenda'
 import { DefaultDayView } from './day'
 import { DefaultMonthView } from './month'
 import { DefaultWeekView } from './week'
-import ViewWorkWeek from './DefaultWorkWeek'
+import { DefaultWorkWeekView } from './workWeek'
 
 const getView = (viewMode, CustomViews) => {
   if (
@@ -16,7 +16,7 @@ const getView = (viewMode, CustomViews) => {
   } else if (viewMode === 'week') {
     return <DefaultWeekView />
   } else if (viewMode === 'wweek') {
-    return <ViewWorkWeek />
+    return <DefaultWorkWeekView />
   } else if (viewMode === 'month') {
     return <DefaultMonthView />
   } else if (viewMode === 'agenda') {
