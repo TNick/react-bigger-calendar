@@ -20,8 +20,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 
 import useViewMode from '../useViewMode'
-import IntervalGrid from '../common/IntervalGrid'
-import { useWorkWeekView } from './WorkWeekModeContext'
 
 const useStyles = makeStyles((theme) => ({
   activeDay: theme.calendar.activeDay,
@@ -37,16 +35,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export const WorkWeekView = ({ gridResolution }) => {
-  const { interval } = useWorkWeekView()
-  return <IntervalGrid gridResolution={gridResolution} interval={interval} />
-}
-
 /**
- * Presents the events in a work week based on useWorkWeekViewMode.
+ * Presents the events in an interval.
  */
-export const OldWorkWeekView = ({ gridResolution }) => {
-  const { interval } = useWorkWeekView()
+const IntervalGrid = ({ gridResolution, interval }) => {
   const { currentDate } = useViewMode()
   const classes = useStyles()
 
@@ -74,8 +66,8 @@ export const OldWorkWeekView = ({ gridResolution }) => {
 
     // This is where we store the rows that host each time slot.
     // The list will have as many items as time slots in the day.
-    // It consist of lists of 6 elements (one for the row label and
-    // 5 for 5 days in the work week).
+    // It consist of lists of N+1 elements (one for the row label and
+    // N for N days in the interval).
     const localTableContent = []
 
     // Get a list of days.
@@ -193,10 +185,11 @@ export const OldWorkWeekView = ({ gridResolution }) => {
   )
 }
 
-WorkWeekView.propTypes = {
+IntervalGrid.propTypes = {
   gridResolution: PropTypes.number
 }
 
-WorkWeekView.defaultProps = {
+IntervalGrid.defaultProps = {
   gridResolution: 60
 }
+export default IntervalGrid

@@ -19,6 +19,7 @@ import Chip from '@material-ui/core/Chip'
 import { makeStyles } from '@material-ui/core/styles'
 
 import useViewMode from '../useViewMode'
+import IntervalGrid from '../common/IntervalGrid'
 
 const useStyles = makeStyles((theme) => ({
   activeDay: theme.calendar.activeDay,
@@ -34,10 +35,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
+export const DayView = ({ gridResolution }) => {
+  const { currentDate } = useViewMode()
+  const interval = useMemo(() => ({
+    start: startOfDay(currentDate),
+    end: endOfDay(currentDate)
+  }))
+  return <IntervalGrid gridResolution={gridResolution} interval={interval} />
+}
+
 /**
  * Presents the events in a day based on useMonthViewMode.
  */
-export const DayView = ({ gridResolution }) => {
+export const OldDayView = ({ gridResolution }) => {
   const { currentDate } = useViewMode()
   const classes = useStyles()
   const [dayHeaders, allDayRow, tableContent] = useMemo(() => {

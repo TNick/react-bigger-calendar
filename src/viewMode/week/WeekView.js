@@ -19,6 +19,7 @@ import Chip from '@material-ui/core/Chip'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 
+import IntervalGrid from '../common/IntervalGrid'
 import useViewMode from '../useViewMode'
 import { useWeekView } from './WeekModeContext'
 
@@ -36,10 +37,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
+export const WeekView = ({ gridResolution }) => {
+  const { interval } = useWeekView()
+  return <IntervalGrid gridResolution={gridResolution} interval={interval} />
+}
+
 /**
  * Presents the events in a week based on useMonthViewMode.
  */
-export const WeekView = ({ gridResolution }) => {
+export const OldWeekView = ({ gridResolution }) => {
   const { interval } = useWeekView()
   const { currentDate } = useViewMode()
   const classes = useStyles()
