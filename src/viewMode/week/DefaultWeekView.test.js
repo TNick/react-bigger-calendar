@@ -1,4 +1,4 @@
-import DefaultWeek from './DefaultWeek'
+import DefaultWeek from './DefaultWeekView'
 
 describe('DefaultWeek', () => {
   it('is truthy', () => {

@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react'
-import useViewMode from '../useViewMode'
 import eachDayOfInterval from 'date-fns/eachDayOfInterval'
 import isSameDay from 'date-fns/isSameDay'
 import formatISO from 'date-fns/formatISO'
 import isWithinInterval from 'date-fns/isWithinInterval'
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'
+
+import useViewMode from '../useViewMode'
 import { DayCell } from './DayCell'
-import { useMonthView } from './MonthModeContext.js'
+import { useMonthView } from './MonthModeContext'
 
 const useStyles = makeStyles((theme) => {
   console.log('theme = %O', theme)

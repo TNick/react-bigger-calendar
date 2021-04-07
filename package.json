@@ -44,6 +44,7 @@
     "@react-aria/button": "^3.3.1",
     "@testing-library/react": "^11.2.6",
     "babel-eslint": "^10.0.3",
+    "clsx": "^1.1.1",
     "cross-env": "^7.0.2",
     "date-fns": "2.11.x",
     "enzyme": "^3.11.0",

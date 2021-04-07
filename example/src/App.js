@@ -56,7 +56,7 @@ const App = () => {
       i18nProvider={i18nProvider}
       initialCurrentDate={today}
       initialStartDate={today}
-      initialViewMode="month"
+      initialViewMode="day"
       theme={theme}
     />
   )

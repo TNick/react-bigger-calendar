@@ -1,8 +1,8 @@
 import React from 'react'
 import ViewAgenda from './DefaultAgenda'
-import ViewDay from './DefaultDay'
+import { DefaultDayView } from './day'
 import { DefaultMonthView } from './month'
-import ViewWeek from './DefaultWeek'
+import { DefaultWeekView } from './week'
 import ViewWorkWeek from './DefaultWorkWeek'
 
 const getView = (viewMode, CustomViews) => {
@@ -12,9 +12,9 @@ const getView = (viewMode, CustomViews) => {
   ) {
     return CustomViews[viewMode]
   } else if (viewMode === 'day') {
-    return <ViewDay />
+    return <DefaultDayView />
   } else if (viewMode === 'week') {
-    return <ViewWeek />
+    return <DefaultWeekView />
   } else if (viewMode === 'wweek') {
     return <ViewWorkWeek />
   } else if (viewMode === 'month') {
